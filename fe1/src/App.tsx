@@ -1,6 +1,8 @@
+import { Card } from "./components/card";
+
 function App() {
   return (
-    <div className="h-screen w-full bg-gradient-to-b from-[#050a1e] px-16 sm:px-56 via-[#07102f] to-[#09153f] ">
+    <div className="min-h-screen max-h-full w-full bg-gradient-to-b from-[#050a1e] px-16 sm:px-56 via-[#07102f] to-[#09153f] ">
       <div className="w-full pt-10">
         <div className="w-full flex justify-between items-center bg-[#1f2535] py-3 px-2 rounded-2xl">
           <div>
@@ -28,7 +30,7 @@ function App() {
           </h1>
         </div>
         <div className="flex gap-2 text-lg">
-          <button className="w-fit h-fit p-2 bg-[#1f2535] px-4 text-white rounded-2xl cursor-pointer hover:bg-red-400 hover:text-black ">
+          <button className="w-fit h-fit p-2 bg-[#1f2535] px-4 text-white rounded-2xl cursor-pointer hover:bg-red-400 hover:text-black  ">
             All
           </button>
           <button className="w-fit h-fit p-2 bg-[#1f2535] px-4 text-white  rounded-2xl cursor-pointer hover:bg-red-400 hover:text-black">
@@ -38,6 +40,11 @@ function App() {
             Inactive
           </button>
         </div>
+      </div>
+      <div className=" w-full h-full mt-10 px-2 grid  sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center">
+        <Card />
+        <Card />
+        <Card />
       </div>
     </div>
   );
