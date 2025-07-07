@@ -1,3 +1,5 @@
+import Switch from "@mui/material/Switch";
+
 export function Card() {
   return (
     <div className="bg-[#1f2535] w-full flex flex-col justify-between   sm:w-[400px] h-[200px] rounded-2xl p-4 border border-gray-600">
@@ -16,7 +18,9 @@ export function Card() {
         <button className="px-4 py-1.5 rounded-2xl border border-gray-600 text-gray-200  hover:border-double hover:border-red-400 hover:bg-slate-600 cursor-pointer">
           Remove
         </button>
-        <button>toggle</button>
+        <button>
+          <Switch color="error" />
+        </button>
       </div>
     </div>
   );
