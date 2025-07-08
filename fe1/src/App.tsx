@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Card } from "./components/card";
 
 function App() {
+  const [darkmode, setdarkmode] = useState("true");
   return (
     <div className="min-h-screen max-h-full w-full  pb-10 bg-gradient-to-b from-[#050a1e] px-10 sm:px-56 via-[#07102f] to-[#09153f] ">
       <div className="w-full pt-10">
