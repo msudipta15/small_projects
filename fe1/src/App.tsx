@@ -149,7 +149,11 @@ function App() {
         </div>
         <div className="flex gap-2 text-lg">
           <button
-            onClick={() => setshowall(true)}
+            onClick={() => {
+              setshowall(true);
+              setshowactive(false);
+              setshowinactive(false);
+            }}
             className={`w-fit h-fit p-2 ${
               darkmode
                 ? "bg-[#1f2535] text-white hover:bg-red-400 hover:text-black"
@@ -159,7 +163,11 @@ function App() {
             All
           </button>
           <button
-            onClick={() => setshowactive(!showactive)}
+            onClick={() => {
+              setshowactive(true);
+              setshowall(false);
+              setshowinactive(false);
+            }}
             className={`w-fit h-fit p-2 ${
               darkmode
                 ? "bg-[#1f2535] text-white hover:bg-red-400 hover:text-black"
@@ -169,7 +177,11 @@ function App() {
             Active
           </button>
           <button
-            onClick={() => setshowinactive(!showinactive)}
+            onClick={() => {
+              setshowinactive(true);
+              setshowall(false);
+              setshowactive(false);
+            }}
             className={`w-fit h-fit p-2 ${
               darkmode
                 ? "bg-[#1f2535] text-white hover:bg-red-400 hover:text-black"
@@ -195,6 +207,19 @@ function App() {
         {showactive &&
           extensions
             .filter((e) => e.isActive)
+            .map((e) => (
+              <Card
+                key={e.name}
+                darkmode={darkmode}
+                name={e.name}
+                description={e.description}
+                logo={e.logo}
+                isActive={e.isActive}
+              />
+            ))}
+        {showinactive &&
+          extensions
+            .filter((e) => !e.isActive)
             .map((e) => (
               <Card
                 key={e.name}
