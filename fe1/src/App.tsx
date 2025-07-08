@@ -209,6 +209,7 @@ function App() {
               description={e.description}
               logo={e.logo}
               isActive={e.isActive}
+              toggleactive={toggleactive}
             />
           ))}
         {showactive &&
@@ -222,6 +223,7 @@ function App() {
                 description={e.description}
                 logo={e.logo}
                 isActive={e.isActive}
+                toggleactive={toggleactive}
               />
             ))}
         {showinactive &&
@@ -235,6 +237,7 @@ function App() {
                 description={e.description}
                 logo={e.logo}
                 isActive={e.isActive}
+                toggleactive={toggleactive}
               />
             ))}
       </div>

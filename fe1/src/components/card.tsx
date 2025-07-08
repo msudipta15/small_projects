@@ -1,5 +1,4 @@
 import Switch from "@mui/material/Switch";
-import { useState } from "react";
 
 interface cardprop {
   darkmode: boolean;
@@ -7,6 +6,7 @@ interface cardprop {
   description: string;
   logo: string;
   isActive: boolean;
+  toggleactive: (name: string) => void;
 }
 
 export function Card({
@@ -15,11 +15,10 @@ export function Card({
   name,
   description,
   isActive,
+  toggleactive,
 }: cardprop) {
-  const [active, setactive] = useState(isActive);
-
   function handleonchange() {
-    setactive(!active);
+    toggleactive(name);
   }
   return (
     <div
@@ -57,7 +56,7 @@ export function Card({
           Remove
         </button>
         <button>
-          <Switch color="error" checked={active} onChange={handleonchange} />
+          <Switch color="error" checked={isActive} onChange={handleonchange} />
         </button>
       </div>
     </div>
