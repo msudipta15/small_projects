@@ -87,6 +87,13 @@ function App() {
   const [showall, setshowall] = useState(true);
   const [showactive, setshowactive] = useState(false);
   const [showinactive, setshowinactive] = useState(false);
+  const [extensionsdata, setextensionsdata] = useState(extensions);
+
+  function toggleactive(name: string) {
+    setextensionsdata((prev) =>
+      prev.map((e) => (e.name === name ? { ...e, isActive: !e.isActive } : e))
+    );
+  }
 
   useEffect(() => {
     console.log(darkmode);
@@ -194,7 +201,7 @@ function App() {
       </div>
       <div className=" w-full h-full mt-10 px-2 grid  sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center">
         {showall &&
-          extensions.map((e) => (
+          extensionsdata.map((e) => (
             <Card
               key={e.name}
               darkmode={darkmode}
@@ -205,7 +212,7 @@ function App() {
             />
           ))}
         {showactive &&
-          extensions
+          extensionsdata
             .filter((e) => e.isActive)
             .map((e) => (
               <Card
@@ -218,7 +225,7 @@ function App() {
               />
             ))}
         {showinactive &&
-          extensions
+          extensionsdata
             .filter((e) => !e.isActive)
             .map((e) => (
               <Card
