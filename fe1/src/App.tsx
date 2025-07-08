@@ -1,6 +1,87 @@
 import { useEffect, useState } from "react";
 import { Card } from "./components/card";
 
+const extensions = [
+  {
+    logo: "src/assets/images/logo-devlens.svg",
+    name: "DevLens",
+    description:
+      "Quickly inspect page layouts and visualize element boundaries.",
+    isActive: true,
+  },
+  {
+    logo: "src/assets/images/logo-style-spy.svg",
+    name: "StyleSpy",
+    description: "Instantly analyze and copy CSS from any webpage element.",
+    isActive: true,
+  },
+  {
+    logo: "src/assets/images/logo-speed-boost.svg",
+    name: "SpeedBoost",
+    description: "Optimizes browser resource usage to accelerate page loading.",
+    isActive: false,
+  },
+  {
+    logo: "src/assets/images/logo-json-wizard.svg",
+    name: "JSONWizard",
+    description:
+      "Formats, validates, and prettifies JSON responses in-browser.",
+    isActive: true,
+  },
+  {
+    logo: "src/assets/images/logo-tab-master-pro.svg",
+    name: "TabMaster Pro",
+    description: "Organizes browser tabs into groups and sessions.",
+    isActive: true,
+  },
+  {
+    logo: "src/assets/images/logo-viewport-buddy.svg",
+    name: "ViewportBuddy",
+    description:
+      "Simulates various screen resolutions directly within the browser.",
+    isActive: false,
+  },
+  {
+    logo: "src/assets/images/logo-markup-notes.svg",
+    name: "Markup Notes",
+    description:
+      "Enables annotation and notes directly onto webpages for collaborative debugging.",
+    isActive: true,
+  },
+  {
+    logo: "src/assets/images/logo-grid-guides.svg",
+    name: "GridGuides",
+    description:
+      "Overlay customizable grids and alignment guides on any webpage.",
+    isActive: false,
+  },
+  {
+    logo: "src/assets/images/logo-palette-picker.svg",
+    name: "Palette Picker",
+    description: "Instantly extracts color palettes from any webpage.",
+    isActive: true,
+  },
+  {
+    logo: "src/assets/images/logo-link-checker.svg",
+    name: "LinkChecker",
+    description: "Scans and highlights broken links on any page.",
+    isActive: true,
+  },
+  {
+    logo: "src/assets/images/logo-dom-snapshot.svg",
+    name: "DOM Snapshot",
+    description: "Capture and export DOM structures quickly.",
+    isActive: false,
+  },
+  {
+    logo: "src/assets/images/logo-console-plus.svg",
+    name: "ConsolePlus",
+    description:
+      "Enhanced developer console with advanced filtering and logging.",
+    isActive: true,
+  },
+];
+
 function App() {
   const [darkmode, setdarkmode] = useState(false);
 
@@ -16,7 +97,7 @@ function App() {
           : "bg-gradient-to-b from-[#ecf3fd] via-[#edf6fb] to-[#effbfb]"
       }   `}
     >
-      <div className="w-full pt-10">
+      <div className="w-full pt-6">
         <div
           className={`w-full flex justify-between items-center ${
             darkmode ? "bg-[#1f2535]" : "bg-[#fcfdff]"
@@ -94,7 +175,16 @@ function App() {
         </div>
       </div>
       <div className=" w-full h-full mt-10 px-2 grid  sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center">
-        <Card darkmode={darkmode} />
+        {extensions.map((e) => (
+          <Card
+            key={e.name}
+            darkmode={darkmode}
+            name={e.name}
+            description={e.description}
+            logo={e.logo}
+            isActive={e.isActive}
+          />
+        ))}
       </div>
     </div>
   );
