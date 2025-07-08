@@ -84,6 +84,9 @@ const extensions = [
 
 function App() {
   const [darkmode, setdarkmode] = useState(false);
+  const [showall, setshowall] = useState(true);
+  const [showactive, setshowactive] = useState(false);
+  const [showinactive, setshowinactive] = useState(false);
 
   useEffect(() => {
     console.log(darkmode);
@@ -91,7 +94,7 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen max-h-full w-full  pb-10  px-10 sm:px-56 ${
+      className={`min-h-screen max-h-full w-full  pb-10  px-10 sm:px-56  ${
         darkmode
           ? "bg-gradient-to-b   dark:from-[#050a1e] dark:via-[#07102f] dark:to-[#09153f]"
           : "bg-gradient-to-b from-[#ecf3fd] via-[#edf6fb] to-[#effbfb]"
@@ -146,6 +149,7 @@ function App() {
         </div>
         <div className="flex gap-2 text-lg">
           <button
+            onClick={() => setshowall(true)}
             className={`w-fit h-fit p-2 ${
               darkmode
                 ? "bg-[#1f2535] text-white hover:bg-red-400 hover:text-black"
@@ -155,6 +159,7 @@ function App() {
             All
           </button>
           <button
+            onClick={() => setshowactive(!showactive)}
             className={`w-fit h-fit p-2 ${
               darkmode
                 ? "bg-[#1f2535] text-white hover:bg-red-400 hover:text-black"
@@ -164,6 +169,7 @@ function App() {
             Active
           </button>
           <button
+            onClick={() => setshowinactive(!showinactive)}
             className={`w-fit h-fit p-2 ${
               darkmode
                 ? "bg-[#1f2535] text-white hover:bg-red-400 hover:text-black"
@@ -175,16 +181,30 @@ function App() {
         </div>
       </div>
       <div className=" w-full h-full mt-10 px-2 grid  sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center">
-        {extensions.map((e) => (
-          <Card
-            key={e.name}
-            darkmode={darkmode}
-            name={e.name}
-            description={e.description}
-            logo={e.logo}
-            isActive={e.isActive}
-          />
-        ))}
+        {showall &&
+          extensions.map((e) => (
+            <Card
+              key={e.name}
+              darkmode={darkmode}
+              name={e.name}
+              description={e.description}
+              logo={e.logo}
+              isActive={e.isActive}
+            />
+          ))}
+        {showactive &&
+          extensions
+            .filter((e) => e.isActive)
+            .map((e) => (
+              <Card
+                key={e.name}
+                darkmode={darkmode}
+                name={e.name}
+                description={e.description}
+                logo={e.logo}
+                isActive={e.isActive}
+              />
+            ))}
       </div>
     </div>
   );
