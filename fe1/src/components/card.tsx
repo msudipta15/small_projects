@@ -1,4 +1,15 @@
 import Switch from "@mui/material/Switch";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../components/ui/alert-dialog";
 
 interface cardprop {
   darkmode: boolean;
@@ -48,15 +59,35 @@ export function Card({
         </div>
       </div>
       <div className="flex justify-between">
-        <button
-          className={`px-4 py-1.5 rounded-2xl border ${
-            darkmode
-              ? "border-gray-600 text-gray-200  hover:border-double hover:border-red-400 hover:bg-slate-600"
-              : "border-gray-600 text-gray-800  hover:border-double hover:border-red-400 hover:bg-red-500 hover:text-white"
-          }  cursor-pointer`}
-        >
-          Remove
-        </button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <button
+              className={`px-4 py-1.5 rounded-2xl border ${
+                darkmode
+                  ? "border-gray-600 text-gray-200  hover:border-double hover:border-red-400 hover:bg-slate-600"
+                  : "border-gray-600 text-gray-800  hover:border-double hover:border-red-400 hover:bg-red-500 hover:text-white"
+              }  cursor-pointer`}
+            >
+              Remove
+            </button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Remove extension ?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete this
+                extension .
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={() => toggleremove(name)}>
+                Continue
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+
         <button>
           <Switch color="error" checked={isActive} onChange={handleonchange} />
         </button>
