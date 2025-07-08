@@ -95,6 +95,10 @@ function App() {
     );
   }
 
+  function toggleremove(name: string) {
+    setextensionsdata((prev) => prev.filter((e) => e.name !== name));
+  }
+
   useEffect(() => {
     console.log(darkmode);
   }, [darkmode]);
@@ -210,6 +214,7 @@ function App() {
               logo={e.logo}
               isActive={e.isActive}
               toggleactive={toggleactive}
+              toggleremove={toggleremove}
             />
           ))}
         {showactive &&
@@ -224,6 +229,7 @@ function App() {
                 logo={e.logo}
                 isActive={e.isActive}
                 toggleactive={toggleactive}
+                toggleremove={toggleremove}
               />
             ))}
         {showinactive &&
@@ -238,6 +244,7 @@ function App() {
                 logo={e.logo}
                 isActive={e.isActive}
                 toggleactive={toggleactive}
+                toggleremove={toggleremove}
               />
             ))}
       </div>

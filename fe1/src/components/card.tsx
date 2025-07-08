@@ -7,6 +7,7 @@ interface cardprop {
   logo: string;
   isActive: boolean;
   toggleactive: (name: string) => void;
+  toggleremove: (name: string) => void;
 }
 
 export function Card({
@@ -16,6 +17,7 @@ export function Card({
   description,
   isActive,
   toggleactive,
+  toggleremove,
 }: cardprop) {
   function handleonchange() {
     toggleactive(name);
