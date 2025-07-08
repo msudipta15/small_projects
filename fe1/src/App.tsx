@@ -94,7 +94,7 @@ function App() {
         </div>
       </div>
       <div className=" w-full h-full mt-10 px-2 grid  sm:grid-cols-2 md:grid-cols-3 gap-3 justify-items-center">
-        <Card />
+        <Card darkmode={darkmode} />
       </div>
     </div>
   );
