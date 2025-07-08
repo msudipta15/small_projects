@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "./components/card";
 
 function App() {
-  const [darkmode, setdarkmode] = useState("true");
+  const [darkmode, setdarkmode] = useState(true);
+
+  useEffect(() => {
+    console.log(darkmode);
+
+    if (darkmode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkmode]);
+
   return (
-    <div className="min-h-screen max-h-full w-full  pb-10 bg-gradient-to-b from-[#050a1e] px-10 sm:px-56 via-[#07102f] to-[#09153f] ">
+    <div className="min-h-screen max-h-full w-full  pb-10 bg-gradient-to-b from-[#ecf3fd] via-[#edf6fb] to-[#effbfb] dark:bg-gradient-to-b dark:from-[#050a1e] px-10 sm:px-56 dark:via-[#07102f] dark:to-[#09153f]  ">
       <div className="w-full pt-10">
         <div className="w-full flex justify-between items-center bg-[#1f2535] py-3 px-2 rounded-2xl">
           <div>
@@ -15,7 +26,10 @@ function App() {
             />
           </div>
           <div>
-            <button className="w-fit h-fit p-2 hover:bg-[#52576a] rounded-2xl cursor-pointer">
+            <button
+              onClick={() => setdarkmode(!darkmode)}
+              className="w-fit h-fit p-2 hover:bg-[#52576a] rounded-2xl cursor-pointer"
+            >
               <img
                 src="src/assets/images/icon-sun.svg"
                 alt=""
