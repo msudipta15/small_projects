@@ -1,7 +1,7 @@
 export function Card({ darkmode }: { darkmode: boolean }) {
   return (
     <div
-      className={`w-[300px] h-[370px] rounded-lg overflow-hidden ${
+      className={`w-[340px] h-[400px] rounded-lg overflow-hidden ${
         darkmode ? "bg-[#2b3743] text-gray-100" : "bg-[#ffffff] text-slate-900"
       }`}
     >
