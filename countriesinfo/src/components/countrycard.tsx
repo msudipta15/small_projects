@@ -13,9 +13,36 @@ export function Card({ darkmode }: { darkmode: boolean }) {
           </div>
 
           <div className="flex flex-col gap-0.5">
-            <p>Population: 123000000</p>
-            <p>Region: South Asia</p>
-            <p>Capital: New Delhi</p>
+            <span className="flex gap-1.5">
+              <p className="font-medium">Population:</p>
+              <p
+                className={` font-light ${
+                  darkmode ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                123000000
+              </p>
+            </span>
+            <span className="flex gap-1.5">
+              <p className="font-medium">Region:</p>
+              <p
+                className={` font-light ${
+                  darkmode ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                Asia
+              </p>
+            </span>
+            <span className="flex gap-1.5">
+              <p className="font-medium">Capital:</p>
+              <p
+                className={` font-light ${
+                  darkmode ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                New Delhi
+              </p>
+            </span>
           </div>
         </div>
       </div>
