@@ -11,7 +11,7 @@ export function Topbar({
     <div
       className={`w-full h-18 ${
         darkmode ? "bg-[#2b3743] text-gray-100" : "bg-[#ffffff] text-slate-900"
-      }  flex justify-between items-center px-10 sm:px-19`}
+      }  flex justify-between items-center px-10 sm:px-33`}
     >
       <h1 className=" text-xl sm:text-2xl font-semibold">
         Where in the world?

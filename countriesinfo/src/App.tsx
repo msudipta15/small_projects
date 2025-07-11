@@ -18,12 +18,14 @@ function App() {
     >
       <Topbar toggledark={toggledark} darkmode={darkmode} />
       <div className="w-full pt-8 mx-20 px-13 ">
-        <div className="w-[450px] border rounded-lg ">
+        <div className="w-[450px] ">
           <Input
             type="text"
             name="country"
             placeholder="Enter country name"
-            className="py-6"
+            className={`py-6 border ${
+              darkmode ? "border-gray-700" : "border-gray-300"
+            } `}
           />
         </div>
         <div></div>
