@@ -16,7 +16,10 @@ function App() {
       }  `}
     >
       <Topbar toggledark={toggledark} darkmode={darkmode} />
-      <div className="mx-20 pt-8 p-4 grid grid-cols-1 gap-4 gap-y-7 sm:grid-cols-4 justify-items-center  ">
+      <div className="w-full ">
+        <input type="text" />
+      </div>
+      <div className="mx-20 pt-8 p-4 grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-4 justify-items-center  ">
         <Card darkmode={darkmode} />
         <Card darkmode={darkmode} />
         <Card darkmode={darkmode} />
