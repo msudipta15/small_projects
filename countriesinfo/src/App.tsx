@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Topbar } from "./components/topbar";
 import { Card } from "./components/countrycard";
+import { Input } from "./components/ui/input";
 
 function App() {
   const [darkmode, setdarkmode] = useState(false);
@@ -18,7 +19,12 @@ function App() {
       <Topbar toggledark={toggledark} darkmode={darkmode} />
       <div className="w-full pt-8 mx-20 px-13 ">
         <div className="w-[450px] border rounded-lg ">
-          <input className="py-4 px-3"></input>
+          <Input
+            type="text"
+            name="country"
+            placeholder="Enter country name"
+            className="py-6"
+          />
         </div>
         <div></div>
       </div>
