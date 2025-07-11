@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Topbar } from "./components/topbar";
 import { Card } from "./components/countrycard";
+import { Input } from "./components/ui/input";
 
 function App() {
   const [darkmode, setdarkmode] = useState(false);
@@ -16,10 +17,13 @@ function App() {
       }  `}
     >
       <Topbar toggledark={toggledark} darkmode={darkmode} />
-      <div className="w-full ">
-        <input type="text" />
+      <div className="w-full pt-8 mx-20 px-13 ">
+        <div className="w-78">
+          <Input />
+        </div>
+        <div></div>
       </div>
-      <div className="mx-20 pt-8 p-4 grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-4 justify-items-center  ">
+      <div className="mx-20  pt-8 p-4 grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-4 justify-items-center  ">
         <Card darkmode={darkmode} />
         <Card darkmode={darkmode} />
         <Card darkmode={darkmode} />
