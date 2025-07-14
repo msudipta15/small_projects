@@ -19,9 +19,9 @@ function App() {
       }  `}
     >
       <Topbar toggledark={toggledark} darkmode={darkmode} />
-      <div className="w-full pt-8 mx-20 px-13 ">
-        <div className="w-[450px] ">
-          <div className="w-full relative">
+      <div className="w-full pt-8 mx-20  px-13 ">
+        <div className="w-full flex  justify-between ">
+          <div className="w-[450px] relative">
             <BsSearch className="absolute top-1/2 left-4 -translate-y-1/2 " />
             <Input
               type="text"
@@ -32,8 +32,18 @@ function App() {
               } `}
             />
           </div>
+          <div
+            className={`pr-40 ${darkmode ? "text-gray-100" : "text-slate-800"}`}
+          >
+            <select
+              name="filter"
+              id=""
+              className={`border w-[200px] h-[40px] rounded-md p-6 px-8`}
+            >
+              <option value=""></option>
+            </select>
+          </div>
         </div>
-        <div></div>
       </div>
       <div className="mx-20  pt-8 p-4 grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-4 justify-items-center  ">
         {countries &&
