@@ -1,4 +1,18 @@
-export function Card({ darkmode }: { darkmode: boolean }) {
+export function Card({
+  darkmode,
+  name,
+  population,
+  region,
+  capital,
+  imagelink,
+}: {
+  darkmode: boolean;
+  name: string;
+  capital: string;
+  population: number;
+  region: string;
+  imagelink: string;
+}) {
   return (
     <div
       className={`w-[300px] h-[400px] rounded-lg overflow-hidden ${
@@ -6,10 +20,10 @@ export function Card({ darkmode }: { darkmode: boolean }) {
       }`}
     >
       <div className="w-full h-1/2">
-        <img src="/india-flag-png-large.png" className="w-full h-full" />
+        <img src={imagelink} className="w-full h-full" />
         <div className="px-6 pt-6 flex flex-col justify-center gap-3">
           <div>
-            <h1 className="text-2xl font-semibold">India</h1>
+            <h1 className="text-2xl font-semibold">{name}</h1>
           </div>
 
           <div className="flex flex-col gap-0.5">
@@ -20,7 +34,7 @@ export function Card({ darkmode }: { darkmode: boolean }) {
                   darkmode ? "text-gray-300" : "text-gray-600"
                 }`}
               >
-                123000000
+                {population}
               </p>
             </span>
             <span className="flex gap-1.5">
@@ -30,7 +44,7 @@ export function Card({ darkmode }: { darkmode: boolean }) {
                   darkmode ? "text-gray-300" : "text-gray-600"
                 }`}
               >
-                Asia
+                {region}
               </p>
             </span>
             <span className="flex gap-1.5">
@@ -40,7 +54,7 @@ export function Card({ darkmode }: { darkmode: boolean }) {
                   darkmode ? "text-gray-300" : "text-gray-600"
                 }`}
               >
-                New Delhi
+                {capital}
               </p>
             </span>
           </div>
