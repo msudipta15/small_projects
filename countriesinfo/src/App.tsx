@@ -4,9 +4,11 @@ import { Topbar } from "./components/topbar";
 import { Card } from "./components/countrycard";
 import { Input } from "./components/ui/input";
 import { BsSearch } from "react-icons/bs";
+import { countries } from "./data/countries";
 
 function App() {
   const [darkmode, setdarkmode] = useState(false);
+  const [countrylist, setcountrylist] = useState(countries);
 
   function toggledark() {
     setdarkmode(!darkmode);
@@ -35,18 +37,8 @@ function App() {
         <div></div>
       </div>
       <div className="mx-20  pt-8 p-4 grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-4 justify-items-center  ">
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
-        <Card darkmode={darkmode} />
+        {countrylist &&
+          countrylist.map((country) => <Card darkmode={darkmode} />)}
       </div>
     </div>
   );
