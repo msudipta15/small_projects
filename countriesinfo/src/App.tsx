@@ -11,7 +11,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "./components/ui/select";
 
 function App() {
   const [darkmode, setdarkmode] = useState(false);
@@ -42,15 +42,17 @@ function App() {
             />
           </div>
           <div
-            className={`pr-40 ${darkmode ? "text-gray-100" : "text-slate-800"}`}
+            className={`pr-40 ${darkmode ? "text-white" : "text-slate-900"}`}
           >
             <Select>
-              <SelectTrigger className="w-[200px] h-[50px] ">
+              <SelectTrigger className="w-[200px] h-[50px]">
                 <SelectValue placeholder="Filter by Region" />
               </SelectTrigger>
               <SelectContent>
-                {countries.map((country) => (
-                  <SelectItem>{country.region}</SelectItem>
+                {[...regions].map((r) => (
+                  <SelectItem key={r} value={r}>
+                    {r}
+                  </SelectItem>
                 ))}
               </SelectContent>
             </Select>
