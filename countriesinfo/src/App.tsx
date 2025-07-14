@@ -5,9 +5,18 @@ import { Card } from "./components/countrycard";
 import { Input } from "./components/ui/input";
 import { BsSearch } from "react-icons/bs";
 import { countries } from "./data/countries";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 function App() {
   const [darkmode, setdarkmode] = useState(false);
+
+  const regions = new Set(countries.map((country) => country.region));
 
   function toggledark() {
     setdarkmode(!darkmode);
@@ -35,13 +44,16 @@ function App() {
           <div
             className={`pr-40 ${darkmode ? "text-gray-100" : "text-slate-800"}`}
           >
-            <select
-              name="filter"
-              id=""
-              className={`border w-[200px] h-[40px] rounded-md p-6 px-8`}
-            >
-              <option value=""></option>
-            </select>
+            <Select>
+              <SelectTrigger className="w-[200px] h-[50px] ">
+                <SelectValue placeholder="Filter by Region" />
+              </SelectTrigger>
+              <SelectContent>
+                {countries.map((country) => (
+                  <SelectItem>{country.region}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
       </div>
