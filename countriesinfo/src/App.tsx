@@ -8,7 +8,6 @@ import { countries } from "./data/countries";
 
 function App() {
   const [darkmode, setdarkmode] = useState(false);
-  const [countrylist, setcountrylist] = useState(countries);
 
   function toggledark() {
     setdarkmode(!darkmode);
@@ -37,9 +36,10 @@ function App() {
         <div></div>
       </div>
       <div className="mx-20  pt-8 p-4 grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-4 justify-items-center  ">
-        {countrylist &&
-          countrylist.map((country) => (
+        {countries &&
+          countries.map((country) => (
             <Card
+              key={country.name}
               darkmode={darkmode}
               region={country.region}
               capital={country.capital!}
