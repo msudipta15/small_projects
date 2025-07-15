@@ -1,3 +1,6 @@
+import { useParams } from "react-router-dom";
+
 export function CountryPage() {
-  return <div className="w-full h-screen">hello</div>;
+  const { name } = useParams();
+  return <div className="w-full h-screen">{name}</div>;
 }

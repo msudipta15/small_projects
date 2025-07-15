@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../components/ui/select";
+import { Link } from "react-router-dom";
 export function Homepage() {
   const [darkmode, setdarkmode] = useState(false);
   const [filterregion, setfilterregion] = useState("All");
@@ -72,18 +73,21 @@ export function Homepage() {
           </div>
         </div>
       </div>
+
       <div className="mx-20  pt-8 p-4 grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-4 justify-items-center  ">
         {filteredcountries &&
           filteredcountries.map((country) => (
-            <Card
-              key={country.name}
-              darkmode={darkmode}
-              region={country.region}
-              capital={country.capital!}
-              population={country.population}
-              name={country.name}
-              imagelink={country.flag}
-            />
+            <Link to={`/${country.name}`}>
+              <Card
+                key={country.name}
+                darkmode={darkmode}
+                region={country.region}
+                capital={country.capital!}
+                population={country.population}
+                name={country.name}
+                imagelink={country.flag}
+              />
+            </Link>
           ))}
       </div>
     </div>
