@@ -16,12 +16,18 @@ import {
 function App() {
   const [darkmode, setdarkmode] = useState(false);
   const [filterregion, setfilterregion] = useState("All");
+  const [inputregion, setinputregion] = useState("");
 
   const regions = new Set(countries.map((country) => country.region));
 
-  const filteredcountries = countries.filter(
-    (country) => filterregion === "All" || filterregion === country.region
-  );
+  const filteredcountries = countries.filter((country) => {
+    const matchedcountries =
+      filterregion === "All" || filterregion === country.region;
+
+    const regexp = new RegExp(inputregion, "i");
+    const matchedsearch = regexp.test(country.name);
+    return matchedcountries && matchedsearch;
+  });
 
   function toggledark() {
     setdarkmode(!darkmode);
@@ -38,6 +44,7 @@ function App() {
           <div className="w-[320px] sm:w-[450px] relative">
             <BsSearch className="absolute top-1/2 left-4 -translate-y-1/2 " />
             <Input
+              onChange={(e) => setinputregion(e.target.value)}
               type="text"
               name="country"
               placeholder="Enter country name"
