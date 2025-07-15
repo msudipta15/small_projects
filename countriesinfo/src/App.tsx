@@ -28,9 +28,9 @@ function App() {
       }  `}
     >
       <Topbar toggledark={toggledark} darkmode={darkmode} />
-      <div className="w-full pt-8 mx-20 sm:px-13 ">
+      <div className="w-full pt-8 mx-22 sm:mx-18  sm:px-13 ">
         <div className="w-full  sm:flex  sm:justify-between ">
-          <div className="w-[350px] sm:w-[450px] relative">
+          <div className="w-[320px] sm:w-[450px] relative">
             <BsSearch className="absolute top-1/2 left-4 -translate-y-1/2 " />
             <Input
               type="text"
