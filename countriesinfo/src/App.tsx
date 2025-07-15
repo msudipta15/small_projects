@@ -15,8 +15,13 @@ import {
 
 function App() {
   const [darkmode, setdarkmode] = useState(false);
+  const [filterregion, setfilterregion] = useState("All");
 
   const regions = new Set(countries.map((country) => country.region));
+
+  const filteredcountries = countries.filter(
+    (country) => filterregion === "All" || filterregion === country.region
+  );
 
   function toggledark() {
     setdarkmode(!darkmode);
@@ -46,11 +51,12 @@ function App() {
               darkmode ? "text-white" : "text-slate-900"
             }`}
           >
-            <Select>
+            <Select onValueChange={(value) => setfilterregion(value)}>
               <SelectTrigger className="w-[200px] h-[50px]">
                 <SelectValue placeholder="Filter by Region" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="All">Show all</SelectItem>
                 {[...regions].map((r) => (
                   <SelectItem key={r} value={r}>
                     {r}
@@ -62,8 +68,8 @@ function App() {
         </div>
       </div>
       <div className="mx-20  pt-8 p-4 grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-4 justify-items-center  ">
-        {countries &&
-          countries.map((country) => (
+        {filteredcountries &&
+          filteredcountries.map((country) => (
             <Card
               key={country.name}
               darkmode={darkmode}
