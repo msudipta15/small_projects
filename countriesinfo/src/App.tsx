@@ -28,9 +28,9 @@ function App() {
       }  `}
     >
       <Topbar toggledark={toggledark} darkmode={darkmode} />
-      <div className="w-full pt-8 mx-20  px-13 ">
-        <div className="w-full flex  justify-between ">
-          <div className="w-[450px] relative">
+      <div className="w-full pt-8 mx-20 sm:px-13 ">
+        <div className="w-full  sm:flex  sm:justify-between ">
+          <div className="w-[350px] sm:w-[450px] relative">
             <BsSearch className="absolute top-1/2 left-4 -translate-y-1/2 " />
             <Input
               type="text"
@@ -42,7 +42,9 @@ function App() {
             />
           </div>
           <div
-            className={`pr-40 ${darkmode ? "text-white" : "text-slate-900"}`}
+            className={`pr-40 pt-3 sm:pt-0 ${
+              darkmode ? "text-white" : "text-slate-900"
+            }`}
           >
             <Select>
               <SelectTrigger className="w-[200px] h-[50px]">
