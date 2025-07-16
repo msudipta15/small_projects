@@ -30,33 +30,52 @@ export function CountryPage() {
           <span className="text-lg">Back</span>
         </button>
       </div>
-      <div className={` h-[500px]  mx-27 px-16 py-8 bg-amber-300 flex gap-25`}>
+      <div className={` h-[500px]  mx-27 px-16 py-8  flex gap-25`}>
         <div>
-          <img src="https://flagcdn.com/ax.svg" width={600} />
+          <img src={country?.flag} width={600} />
         </div>
         <div className="p-14">
-          <h1 className="text-4xl font-bold">France</h1>
-          <div className="flex flex-col gap-2 pt-5">
-            <span className="flex gap-1">
-              <p className="font-medium">Native Name:</p>
-              <p className="text-gray-500">Francee</p>
-            </span>
-            <span className="flex gap-1">
-              <p className="font-medium">Population:</p>
-              <p className="text-gray-500">Francee</p>
-            </span>
-            <span className="flex gap-1">
-              <p className="font-medium">Region:</p>
-              <p className="text-gray-500">Francee</p>
-            </span>
-            <span className="flex gap-1">
-              <p className="font-medium">Sub Region:</p>
-              <p className="text-gray-500">Francee</p>
-            </span>
-            <span className="flex gap-1">
-              <p className="font-medium">Capital:</p>
-              <p className="text-gray-500">Francee</p>
-            </span>
+          <h1 className="text-4xl font-bold">{country?.name}</h1>
+          <div className="flex gap-32">
+            <div className="flex flex-col gap-2 pt-5">
+              <span className="flex gap-1">
+                <p className="font-medium">Native Name : </p>
+                <p className="text-gray-500">{country?.nativeName}</p>
+              </span>
+              <span className="flex gap-1">
+                <p className="font-medium">Population :</p>
+                <p className="text-gray-500">{country?.population}</p>
+              </span>
+              <span className="flex gap-1">
+                <p className="font-medium">Region :</p>
+                <p className="text-gray-500">{country?.region}</p>
+              </span>
+              <span className="flex gap-1">
+                <p className="font-medium">Sub Region :</p>
+                <p className="text-gray-500">{country?.subregion}</p>
+              </span>
+              <span className="flex gap-1">
+                <p className="font-medium">Capital :</p>
+                <p className="text-gray-500">{country?.capital}</p>
+              </span>
+            </div>
+            <div className="flex flex-col gap-2 pt-5">
+              <span className="flex gap-1">
+                <p className="font-medium">Top Level Domain: </p>
+                <p className="text-gray-500">.be</p>
+              </span>
+              <span className="flex gap-1">
+                <p className="font-medium">Currencies: </p>
+                <p className="text-gray-500">dollar</p>
+              </span>
+              <span className="flex gap-1">
+                <p className="font-medium">Languages: </p>
+                <p className="text-gray-500">english , hindi</p>
+              </span>
+            </div>
+          </div>
+          <div className="pt-16">
+            <span className="font-medium">Border Countries : </span>
           </div>
         </div>
       </div>
