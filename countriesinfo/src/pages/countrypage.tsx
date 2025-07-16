@@ -9,6 +9,14 @@ export function CountryPage() {
   const country = countries.find((c) => c.name === name);
   const [darkmode, setdarkmode] = useState(false);
 
+  const currency = country?.currencies?.[0]?.name;
+  const languages = country?.languages.map((l) => l.name);
+  const borders = countries.filter((c) =>
+    country?.borders?.includes(c.alpha3Code)
+  );
+
+  console.log(borders);
+
   function toggledarkmode() {
     return setdarkmode(!darkmode);
   }
@@ -20,7 +28,7 @@ export function CountryPage() {
       }  `}
     >
       <Topbar toggledark={toggledarkmode} darkmode={darkmode} />
-      <div className=" mx-27 p-16">
+      <div className=" mx-27 p-10 py-18">
         <Link to={"/"}>
           <button
             className={`border ${
@@ -32,11 +40,11 @@ export function CountryPage() {
           </button>
         </Link>
       </div>
-      <div className={` h-[500px]  mx-27 px-16 py-8  flex gap-25`}>
+      <div className={` h-[500px]  mx-27 px-10 py-6  flex gap-25`}>
         <div>
           <img src={country?.flag} width={600} />
         </div>
-        <div className="p-14">
+        <div className="p-10">
           <h1 className="text-4xl font-bold">{country?.name}</h1>
           <div className="flex gap-32">
             <div className="flex flex-col gap-2 pt-5">
@@ -68,11 +76,11 @@ export function CountryPage() {
               </span>
               <span className="flex gap-1">
                 <p className="font-medium">Currencies: </p>
-                <p className="text-gray-500">dollar</p>
+                <p className="text-gray-500">{currency}</p>
               </span>
               <span className="flex gap-1">
                 <p className="font-medium">Languages: </p>
-                <p className="text-gray-500">english , hindi</p>
+                <p className="text-gray-500">{languages?.join(", ")}</p>
               </span>
             </div>
           </div>
