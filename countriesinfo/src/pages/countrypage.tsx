@@ -34,7 +34,31 @@ export function CountryPage() {
         <div>
           <img src="https://flagcdn.com/ax.svg" width={600} />
         </div>
-        <div>name</div>
+        <div className="p-14">
+          <h1 className="text-4xl font-bold">France</h1>
+          <div className="flex flex-col gap-2 pt-5">
+            <span className="flex gap-1">
+              <p className="font-medium">Native Name:</p>
+              <p className="text-gray-500">Francee</p>
+            </span>
+            <span className="flex gap-1">
+              <p className="font-medium">Population:</p>
+              <p className="text-gray-500">Francee</p>
+            </span>
+            <span className="flex gap-1">
+              <p className="font-medium">Region:</p>
+              <p className="text-gray-500">Francee</p>
+            </span>
+            <span className="flex gap-1">
+              <p className="font-medium">Sub Region:</p>
+              <p className="text-gray-500">Francee</p>
+            </span>
+            <span className="flex gap-1">
+              <p className="font-medium">Capital:</p>
+              <p className="text-gray-500">Francee</p>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );
