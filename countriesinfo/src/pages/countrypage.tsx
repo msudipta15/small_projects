@@ -61,8 +61,8 @@ export function CountryPage() {
             </div>
             <div className="flex flex-col gap-2 pt-5">
               <span className="flex gap-1">
-                <p className="font-medium">Top Level Domain: </p>
-                <p className="text-gray-500">.be</p>
+                <p className="font-medium">Top Level Domain : </p>
+                <p className="text-gray-500">{country?.topLevelDomain}</p>
               </span>
               <span className="flex gap-1">
                 <p className="font-medium">Currencies: </p>
