@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { countries } from "../data/countries";
 import { Topbar } from "../components/topbar";
 import { useState } from "react";
@@ -21,14 +21,16 @@ export function CountryPage() {
     >
       <Topbar toggledark={toggledarkmode} darkmode={darkmode} />
       <div className=" mx-27 p-16">
-        <button
-          className={`border ${
-            darkmode ? "border-gray-700" : "border-gray-200"
-          } px-16 py-3 rounded-lg shadow cursor-pointer hover:shadow-xl flex items-center justify-center gap-1`}
-        >
-          <IoMdArrowBack size={26} />
-          <span className="text-lg">Back</span>
-        </button>
+        <Link to={"/"}>
+          <button
+            className={`border ${
+              darkmode ? "border-gray-700" : "border-gray-200"
+            } px-16 py-3 rounded-lg shadow cursor-pointer hover:shadow-xl flex items-center justify-center gap-1`}
+          >
+            <IoMdArrowBack size={26} />
+            <span className="text-lg">Back</span>
+          </button>
+        </Link>
       </div>
       <div className={` h-[500px]  mx-27 px-16 py-8  flex gap-25`}>
         <div>
