@@ -12,8 +12,9 @@ import {
   SelectValue,
 } from "../components/ui/select";
 import { Link } from "react-router-dom";
+import { useDarkmode } from "../hooks/useDarkmode";
 export function Homepage() {
-  const [darkmode, setdarkmode] = useState(false);
+  const { darkmode, toggleDarkmode } = useDarkmode();
   const [filterregion, setfilterregion] = useState("All");
   const [inputregion, setinputregion] = useState("");
 
@@ -29,7 +30,7 @@ export function Homepage() {
   });
 
   function toggledark() {
-    setdarkmode(!darkmode);
+    toggleDarkmode();
   }
   return (
     <div

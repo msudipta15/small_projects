@@ -1,13 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { countries } from "../data/countries";
 import { Topbar } from "../components/topbar";
-import { useState } from "react";
 import { IoMdArrowBack } from "react-icons/io";
+import { useDarkmode } from "../hooks/useDarkmode";
 
 export function CountryPage() {
   const { name } = useParams();
   const country = countries.find((c) => c.name === name);
-  const [darkmode, setdarkmode] = useState(false);
+  const { darkmode, toggleDarkmode } = useDarkmode();
 
   const currency = country?.currencies?.[0]?.name;
   const languages = country?.languages.map((l) => l.name);
@@ -18,7 +18,7 @@ export function CountryPage() {
   console.log(borders);
 
   function toggledarkmode() {
-    return setdarkmode(!darkmode);
+    toggleDarkmode();
   }
 
   return (
@@ -87,7 +87,7 @@ export function CountryPage() {
             </div>
           </div>
           <div className="sm:pt-16 pt-10 sm:flex sm:gap-2 ">
-            <span className="font-medium">Border Countries : </span>
+            <span className="font-medium sm:pt-1">Border Countries : </span>
             <div className=" flex flex-wrap gap-1 h-full sm:w-[500px] pt-6 sm:pt-0  ">
               {borders.map((b) => (
                 <button
