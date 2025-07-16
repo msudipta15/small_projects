@@ -84,8 +84,15 @@ export function CountryPage() {
               </span>
             </div>
           </div>
-          <div className="pt-16">
+          <div className="pt-16 flex gap-2 ">
             <span className="font-medium">Border Countries : </span>
+            <div className=" flex flex-wrap gap-1 h-full w-[500px]  ">
+              {borders.map((b) => (
+                <button className="border w-fit px-3 py-1 text-gray-500 rounded">
+                  {b.name.trim()}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
