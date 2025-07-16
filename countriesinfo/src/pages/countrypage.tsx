@@ -40,13 +40,15 @@ export function CountryPage() {
           </button>
         </Link>
       </div>
-      <div className={` h-[500px]  mx-27 px-10 py-6  sm:flex gap-25`}>
+      <div
+        className={` h-full sm:h-[500px]  sm:mx-27 mx-8 p-12 sm:px-10 sm:py-6  sm:flex gap-25`}
+      >
         <div>
           <img src={country?.flag} width={600} />
         </div>
-        <div className="p-10">
+        <div className="sm:p-10 py-10">
           <h1 className="text-4xl font-bold">{country?.name}</h1>
-          <div className="flex gap-32">
+          <div className="sm:flex sm:gap-32">
             <div className="flex flex-col gap-2 pt-5">
               <span className="flex gap-1">
                 <p className="font-medium">Native Name : </p>
@@ -69,7 +71,7 @@ export function CountryPage() {
                 <p className="text-gray-500">{country?.capital}</p>
               </span>
             </div>
-            <div className="flex flex-col gap-2 pt-5">
+            <div className="flex flex-col gap-2 pt-10 sm:pt-5">
               <span className="flex gap-1">
                 <p className="font-medium">Top Level Domain : </p>
                 <p className="text-gray-500">{country?.topLevelDomain}</p>
@@ -84,9 +86,9 @@ export function CountryPage() {
               </span>
             </div>
           </div>
-          <div className="pt-16 flex gap-2 ">
+          <div className="sm:pt-16 pt-10 sm:flex sm:gap-2 ">
             <span className="font-medium">Border Countries : </span>
-            <div className=" flex flex-wrap gap-1 h-full w-[500px]  ">
+            <div className=" flex flex-wrap gap-1 h-full sm:w-[500px] pt-6 sm:pt-0  ">
               {borders.map((b) => (
                 <button
                   className={`border ${
