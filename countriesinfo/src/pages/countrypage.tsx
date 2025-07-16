@@ -28,7 +28,7 @@ export function CountryPage() {
       }  `}
     >
       <Topbar toggledark={toggledarkmode} darkmode={darkmode} />
-      <div className=" mx-27 p-10 py-18">
+      <div className=" mx-8 sm:mx-27 p-10 py-6 sm:py-18">
         <Link to={"/"}>
           <button
             className={`border ${
@@ -40,7 +40,7 @@ export function CountryPage() {
           </button>
         </Link>
       </div>
-      <div className={` h-[500px]  mx-27 px-10 py-6  flex gap-25`}>
+      <div className={` h-[500px]  mx-27 px-10 py-6  sm:flex gap-25`}>
         <div>
           <img src={country?.flag} width={600} />
         </div>
@@ -88,7 +88,11 @@ export function CountryPage() {
             <span className="font-medium">Border Countries : </span>
             <div className=" flex flex-wrap gap-1 h-full w-[500px]  ">
               {borders.map((b) => (
-                <button className="border w-fit px-3 py-1 text-gray-500 rounded">
+                <button
+                  className={`border ${
+                    darkmode ? "border-gray-700" : "border-gray-200"
+                  } w-fit px-3 py-1 text-gray-500 rounded`}
+                >
                   {b.name.trim()}
                 </button>
               ))}
